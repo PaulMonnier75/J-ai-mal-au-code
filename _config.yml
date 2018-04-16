@@ -1,0 +1,36 @@
+# site settings
+title: "J'ai mal au code !"
+subtitle: "by {firstName: \"Paul\", lastName: \"MONNIER\", job: \"Développeur .NET\", kind: \"Software Craftsman\"}"
+email: paulmonnier75@gmail.com
+description: Les joies, les peines et les aberrations que peut rencontrer un développeur. 
+baseurl: "" # the subpath of your site, e.g. /blog
+url: # the base hostname & protocol for your site
+author: Paul MONNIER
+company_name: VISEO Technologies
+company_street_address: 94 rue de Paris
+company_city: Boulogne-Billancourt
+company_zip_code: 92100
+company_country: France
+phone: (+33) (0)6 68 79 06 69
+
+# homepage tiles
+tiles-source: posts # accepts "posts" or "pages"
+tiles-count: 6
+
+# social settings)
+500px_url:
+facebook_url:
+github_url:
+gitlab_url: 
+googleplus_url: 
+instagram_url: https://www.instagram.com/paul__banks/
+linkedin_url: https://www.linkedin.com/in/paul-monnier-9058a882/
+pinterest_url:
+slack_url:
+twitter_url: https://twitter.com/Paul__Monnier
+
+# build settings
+markdown: kramdown
+
+sass:
+  style: compressed
