@@ -3,7 +3,7 @@ title: "J'ai mal au code !"
 subtitle: "by {firstName: \"Paul\", lastName: \"MONNIER\", job: \"Développeur .NET\", kind: \"Software Craftsman\"}"
 email: paulmonnier75@gmail.com
 description: Les joies, les peines et les aberrations que peut rencontrer un développeur. 
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author: Paul MONNIER
 company_name: VISEO Technologies
