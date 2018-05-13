@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Second Article
-description: Non disponible pour le moment
-image: assets/images/pic05.jpg
+title: Résumé NewCraft 2018
+description: A venir
+image: assets/images/ncrafts.jpg
 ---

@@ -24,6 +24,11 @@ nav-menu: true
 				<div class="4u$">
 					<a target="_blank" href="https://www.amazon.fr/dp/B00QXAGIDO/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1"><span class="image fit" style="text-align:center"><img style="margin-bottom:20px" src="assets/images/the-software-craftsman.jpg" alt="The Software Craftsman" />The Software Craftsman<br/>De <strong>Sandro MANCUSO</strong></span></a>
 				</div>
+				<div class="4u$">
+					<a target="_blank" href="https://www.amazon.fr/Art-Unit-Testing-Roy-Osherove/dp/1617290890"><span class="image fit" style="text-align:center"><img style="margin-bottom:20px" src="assets/images/the-art-of-unit-testing.jpeg" alt="The Software Craftsman" />The Art Of Unit Testing<br/>De <strong>Roy Osherove</strong></span></a>
+				</div>
+
+
 			</div>
 		</div>
 	</div>
