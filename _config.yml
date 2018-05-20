@@ -23,6 +23,9 @@ jekyll_analytics:
     id: UA-119538677-1
     anonymizeIp: false
 
+# Plugins
+whitelist: []
+plugins:   []
 
 # social settings)
 500px_url:
