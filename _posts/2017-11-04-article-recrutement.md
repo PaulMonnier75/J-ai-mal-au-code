@@ -3,6 +3,7 @@ layout: post
 title: Les mauvaises pratiques de recrutement
 description: Recrutement
 image: assets/images/recrutement-article-image.jpg
+author: Paul MONNIER
 ---
 
 <p><span class="image left"><img src="https://techcrunch.com/wp-content/uploads/2015/06/interviews-e1433244493315.jpg?w=730&crop=1" alt="" /></span>Dès la fin de mes études j'ai compris à quel point le métier de développeur était recherché. En effet, dans ce domaine, l'offre est encore supérieure à la demande.<br/>Constamment démarché, <b>LinkedIn</b> représente 90% des offres que je reçois. Dans un premier temps, cette situation est valorisante et flatteuse, cependant, recevoir systématiquement les mêmes messages, des annonces non ciblées, ou encore, des annonces faites de copier-coller dont l’unique différence est le nom de famille, s'avère au bout du compte décevant et frustrant.<br/>
