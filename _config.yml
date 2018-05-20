@@ -17,16 +17,6 @@ phone: (+33) (0)6 68 79 06 69
 tiles-source: posts # accepts "posts" or "pages"
 tiles-count: 6
 
-# Jekyll Analytics
-jekyll_analytics:
-  GoogleAnalytics:
-    id: UA-119538677-1
-    anonymizeIp: false
-
-# Plugins
-whitelist: []
-plugins:   []
-
 # social settings)
 500px_url:
 facebook_url:
