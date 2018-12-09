@@ -29,8 +29,14 @@ pinterest_url:
 slack_url:
 twitter_url: https://twitter.com/Paul__Monnier
 
+# Rouge
+highlighter: rouge
+
 # build settings
 markdown: kramdown
+kramdown:
+  syntax_highlighter: pygments
+highlighter: pygments
 
 sass:
   style: compressed
