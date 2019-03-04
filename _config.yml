@@ -34,9 +34,6 @@ highlighter: rouge
 
 # build settings
 markdown: kramdown
-kramdown:
-  syntax_highlighter: pygments
-highlighter: pygments
 
 sass:
   style: compressed
