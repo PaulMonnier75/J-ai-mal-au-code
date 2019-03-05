@@ -4,7 +4,7 @@ subtitle: "by {firstName: \"Paul\", lastName: \"MONNIER\", job: \"Développeur .
 email: paulmonnier75@gmail.com
 description: Les joies, les peines et les aberrations que peut rencontrer un développeur. 
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: # the base hostname & protocol for your site
+url: www.jaimalaucode.net
 author: Paul MONNIER
 company_name: VISEO Technologies
 company_street_address: 94 rue de Paris

@@ -14,20 +14,6 @@ author: Paul MONNIER
     Akka .Net est un ensemble de librairies initialement venues de l'univers <b>Java</b>, adaptées en .Net par Petabridge. Ce Framework permet de créer facilement des systèmes <b>concurrents</b>, <b>distribués</b> et <b>scalables</b>, basé sur le pattern <b>"Actor Model"</b>.<br/><br/>
 </p>
 
-<p>
-    <span class="image left" style="max-width:45%;"><img src="/assets/images/articles/akka/proto-actor-benchmark.png" alt="" /></span>
-
-    <b>Proto.Actor</b> est le nouveau Framework visant à remplacer ce dernier.<br/>
-    Développé par le papa de Akka, il serait plus performant avec de nouvelles fonctionnalités.
-
-    <b>Roger JOHANSSON</b> a voulu recommencer un Framework d' Actor Model sur une base saine, permettant ainsi de rajouter des fonctionnalités qui auraient été couteuses et compliquées à développer sur son ancien Framework.<br/>
-
-    Bien que cette technologie soit prometteuse et plus performante, le manque de documentation m'a pour le moment découragé à aller plus loin dans mon POC.<br/>
-
-    <p style="font-size:11pt;">Vous trouverez ci-contre un Benchmark comparatif pour votre curiosité.</p> 
-</p>
-
-
 
 <h1 style="text-decoration: underline dotted;">Le pattern Actor Model</h1>
 
@@ -63,7 +49,7 @@ Ce pattern créé pour simplifier la gestion des <b>traitements parallèles</b>,
     <b>Conseils :</b>
     <ul>
         <li>Il est fortement conseillé d'utiliser des <b>messages immutables</b> pour éviter tout anti-pattern</li>
-        <li>Vous pouvez <b><i>overrider</i></b> la mailbox de vos acteurs pour modifier leurs comportements. Par exemple vous pourriez faire une <b><i>'Priority Mailbox'</i></b>  chargée de dépiler vos messages en les priorisant grâce à un attribut placé dans le model de vos messages.</li>
+        <li>Vous pouvez <b><i>'override'</i></b> la mailbox de vos acteurs pour modifier leurs comportements. Par exemple vous pourriez faire une <b><i>'Priority Mailbox'</i></b>  chargée de dépiler vos messages en les priorisant grâce à un attribut placé dans le model de vos messages.</li>
     </ul>
 </div>
 
@@ -85,8 +71,8 @@ Ce pattern créé pour simplifier la gestion des <b>traitements parallèles</b>,
 <div>
 Il existe 3 moyens différents pour envoyer un message à un acteur :<br/><br/>
     <p>
-        <span class="image left" target="_blank" style="max-width:30%;"><img src="/assets/images/articles/akka/tell.png" alt="" /></span><br>
-        <b style="font-size:28pt;color:#ff4500;">Tell :</b> Permet simplement d'envoyer un message à un acteur sans bloquer l'acteur. C'est une sorte de <b>"Fire And Forget"</b>
+        <span class="image left" target="_blank" style="max-width:30%;"><img src="/assets/images/articles/akka/tell.jpg" alt="" /></span><br>
+        <b style="font-size:28pt;color:#ff4500;">Tell :</b> Permet simplement d'envoyer un message à un acteur sans le bloquer. C'est une sorte de <b>"Fire And Forget"</b>
     </p><br/>
     <p>
         <span class="image right" target="_blank" style="max-width:30%;"><img src="/assets/images/articles/akka/ask.jpg" alt="" /></span>
@@ -122,7 +108,7 @@ Comme vous pouvez le voir sur l'image ci dessous, il y a plusieurs étapes entre
 4. Si l'acteur rentre dans l'état <b><i>'Terminated'</i></b> alors cela veut dire que l'acteur est complètement mort, il ne recevra donc plus de messages et ne pourra plus être redémarré.<br>
 5. Si l'acteur parent à constaté une erreur il peut alors demander à son enfant de redémarrer et rentrera donc dans le dernier état qui est le <b><i>'Restarting'</i></b>, l'ultime état avant que l'acteur ne reprenne son état initial de 'Starting'<br>
 
-Entre tous ces états, quelques méthodes du cycle vie sont appelées, il est possible de les <i>'overrider'</i> pour leur donner un comportement spécifique.
+Entre tous ces états, quelques méthodes du cycle vie sont appelées, il est possible de les <i>'override'</i> pour leur donner un comportement spécifique.
 
 <table>
     <colgroup>
@@ -254,14 +240,14 @@ Si cette syntaxe ne vous plaît pas, depuis C# 7, vous pouvez utiliser le patter
 </a>
 
 Pourquoi déléguer toutes ces tâches à des acteurs enfants ? <br>
-Nous pourrions imaginer que l'acteur principal puisse s'occuper de faire tout le travail, cependant la lisibilité et la propreté du code seraient impactées. Il est donc plus judicieux de suivre le principe <b>SOLID</b> (Single Responsibility Principle) pour que chaque entité s'occupe d'un seul et même périmètre d'actions. <br>
+Nous pourrions imaginer que l'acteur principal puisse s'occuper de faire tout le travail, cependant la lisibilité et la propreté du code seraient impactées. Il est donc plus judicieux de suivre le principe de <b>Single Responsibility Principle</b> (un des principe SOLID) pour que chaque entité s’occupe d’un seul et même périmètre d’actions.<br>
 C'est pourquoi dans mon exemple, le ThermostatActor s'occupe uniquement des actions propres au thermostat, notamment avec la méthode "ConvertFahrenheitToCelcius" qui se charge de convertir la température reçue et qui sera ensuite envoyée à l'API du thermostat.<br>
 
 <a class="image left" target="_blank"  style="max-width:54%;" href="https://github.com/PaulMonnier75/AkkaPOC/blob/master/Core/Actors/HomeAutomationActor.cs">
     <img src="/assets/images/articles/akka/supervision-strategy.png" alt="" />
 </a><br>
 
-Ci-contre, un exemple montrant comment j'ai overridé la <i>'Supervision Stratégie'</i> de l'acteur HomeAutomationActor. Vous remarquerez que  j'ai décidé d'overrider la <i>OneForOneStrategy</i>, signifiant que si mon ThermostatActor lève une exception il sera le seul à recevoir une décision, le LightActor ne sera donc pas impacté.<br>
+Ci-contre, un exemple montrant comment j'ai overridé la <i>'Supervision Stratégie'</i> de l'acteur HomeAutomationActor. Vous remarquerez que  j'ai décidé d'<i>'override'</i> la <i>OneForOneStrategy</i>, signifiant que si mon ThermostatActor lève une exception il sera le seul à recevoir une décision, le LightActor ne sera donc pas impacté.<br>
 
 En exécutant la requête suivante le ThermostatActor lèvera une exception de type ElectricityOverConsommationException. Suite à la surcharge de la stratégie, l'acteur parent va ordonner à son enfant de redémarrer. J'ai pris le soin de placer des <i>'Console.WriteLine'</i> dans les méthodes du cycle de vie pour mieux comprendre le fonctionnement.<br><br><br><br>
 
@@ -272,10 +258,22 @@ En exécutant la requête suivante le ThermostatActor lèvera une exception de t
 <h2>Conclusion</h2>
 
 A travers cet article, nous avons vu les grandes lignes du pattern acteur model avec Akka. J'espère que cela vous aidera à démystifier ce concept qui n'est pas forcément évident à comprendre.<br>
-J'aime beaucoup ce Framework puisqu'il permet de créer facilement des applications distribuées, concurrentes et scalables à travers de très bonnes Apis.<br>
+J'aime beaucoup ce Framework puisqu'il permet de créer facilement des applications distribuées, concurrentes et scalables à travers de très bonnes APIs.<br>
 De plus la <i>'Supervision Strategy'</i>, permet à votre application d'être résiliente en lui permettant de continuer de fonctionner en cas d'erreurs. 
 Le framework est très vaste et nous avons vu qu'une infime partie de ce que Akka peut nous donner.
-J'ai la chance de travailler sur un projet sur lequel Akka est mis en place, nos acteurs traitent des millions de commandes asynchrones par jour. Nous avons overridé nos mailbox pour que nos commandes est une notion de priorité et que certains messages soient traités avant d'autres.<br>
+J'ai la chance de travailler sur un projet sur lequel Akka est mis en place, nos acteurs traitent des millions de commandes asynchrones par jour. Nous avons overridé nos mailbox pour que nos commandes aient une notion de priorité et que certains messages soient traités avant d'autres.<br><br>
 
+<p>
+    <span class="image left" style="max-width:45%;"><img src="/assets/images/articles/akka/proto-actor-benchmark.png" alt="" /></span>
+
+    Il semblerait que <b>Proto.Actor</b> soit le nouveau Framework visant à remplacer ce Akka.<br/>
+    Développé par le papa de Akka, il serait plus performant avec de nouvelles fonctionnalités.
+
+    <b>Roger JOHANSSON</b> a voulu recommencer un Framework d' Actor Model sur une base saine, permettant ainsi de rajouter des fonctionnalités qui auraient été couteuses et compliquées à développer sur son ancien Framework.<br/>
+
+    Bien que cette technologie soit prometteuse et plus performante, le manque de documentation m'a pour le moment découragé à aller plus loin dans mon POC.<br/>
+
+    <p style="font-size:11pt;">Vous trouverez ci-contre un Benchmark comparatif pour votre curiosité.</p> 
+</p>
 
  <a href="https://github.com/PaulMonnier75/AkkaPOC">Lien Github</a>
