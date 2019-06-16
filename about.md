@@ -11,7 +11,7 @@ nav-menu: true
 <section id="one">
 	<div class="inner">
 		<header class="major">
-			<h1>A propos de moi</h1>
+			<h1>A propos de Paul MONNIER</h1>
 		</header>
 		<p>
 			<span class="image left"><img src="assets/images/picAbout.jpg" alt="Paul MONNIER" height="400" /></span>
